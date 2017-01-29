@@ -1,0 +1,65 @@
+\documentclass[a4paper,10pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bchart}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{%
+    pdfborder = {0 0 0}
+}
+
+\parindent0em
+
+\lstset{%
+frame=single,
+numbers=left,
+numberstyle=\footnotesize,
+tabsize=2,
+keepspaces=true,
+columns=fullflexible,
+basicstyle=\ttfamily\scriptsize,
+inputencoding=utf8,
+extendedchars=true,
+}
+
+
+
+
+
+\title{Eksamen - Generisk Programmering}
+\author{Henrik Schulz \\ hschu12@student.sdu.dk \\ 011190}
+\date{31/1/2017}
+
+\begin{document}
+\maketitle
+
+\section{Forord}
+problem stilling
+brug af givet kode (underviser)
+\section{Designvalg}
+Bidirectional = to kanter istedet for en.
+Gennemløb af alle kanter (O(E) != O(degree))
+Antagelse om at skabelsen af adjencencylist(4) giver plads til 4 knuder og at add vertex blot giver return v. Ikke tillader flere knuder en først defineret.
+VertexProp = capacity med mulighed for andet
+EdgeProp = cost -II-
+\section{Implementering}
+\subsection{Standard addVertex og addEdge}
+\subsection{graph::IncidenceGraph}
+\subsection{graph::BidirectionalGraph}
+\subsection{Edge and Vertex Properties}
+\subsection{DFS/Visitor}
+\subsection{Toplogisk sortering}
+
+\section{Test}
+
+\section{Forbedringer}
+Ændre så kanten ikke tæller for to når den er bidirectional: Enable if
+
+\end{document}

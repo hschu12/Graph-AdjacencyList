@@ -195,10 +195,7 @@ public: // Bidirectional 1d
 		const AdjacencyList *g;
 	}; //InEdgeRange END
 public:
-	AdjacencyList(std::size_t n) : vList(n) {
-
-
-	 }
+	AdjacencyList(std::size_t n) : vList(n) { }
 private:
 	VList vList;
 	EList eList;
