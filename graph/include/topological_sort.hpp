@@ -2,6 +2,7 @@
 #define GRAPH_TOPOLOGICAL_SORT_HPP
 
 #include "depth_first_search.hpp"
+#include <iostream>
 
 namespace graph {
 namespace detail {
@@ -12,14 +13,16 @@ struct TopoVisitor : DFSNullVisitor {
 
 	// TODO
 private:
-	OutputItererator iter;
+	OutputIterator iter;
 };
 
 } // namespace detail
 
 template<typename Graph, typename OutputIterator>
 void topoSort(const Graph &g, OutputIterator oIter) {
-	// TODO
+	detail::TopoVisitor<OutputIterator> *vis = new detail::TopoVisitor<OutputIterator>(oIter);
+	dfs(g,vis);
+	std::cout << "Done TopoSort" << std::endl;
 }
 
 } // namespace graph

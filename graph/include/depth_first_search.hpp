@@ -45,25 +45,30 @@ enum struct DFSColour {
 template<typename Graph, typename Visitor>
 void dfsVisit(const Graph &g, Visitor visitor, typename Traits<Graph>::VertexDescriptor u,
 		std::vector<DFSColour> &colour) {
-	// TODO
+       
+    visitor->discoverVertex(u, g);
+	std::cout << "dfsvisit called" << std::endl;
+
 	colour[u] = DFSColour::Grey;
 	auto adjacent = outEdges(u, g);
+
 	for( auto vertex = adjacent.begin(); vertex != adjacent.end(); ++vertex) 
 	{
-		if (colour[u] == DFSColour::White) 
+
+		auto tar = (*vertex).tar;
+
+		if (colour[tar] == DFSColour::White) 
 		{
 			visitor->treeEdge(g, visitor);
-			//dfsVisit(g, visitor, vertex, colour);
+			dfsVisit(g, visitor, tar , colour);
 		}
-		else if (colour[u] == DFSColour::Grey)
+		else if (colour[tar] == DFSColour::Grey)
 		{
 			visitor->backEdge(g, visitor);
-			continue;
 		}
-		else if (colour[u] == DFSColour::Black)
+		else if (colour[tar] == DFSColour::Black)
 		{
 			visitor->forwardOrCrossEdge(g, visitor);
-			continue;
 		}
 	}
 	colour[u] = DFSColour::Black;
@@ -75,15 +80,18 @@ void dfsVisit(const Graph &g, Visitor visitor, typename Traits<Graph>::VertexDes
 template<typename Graph, typename Visitor>
 void dfs(const Graph &g, Visitor visitor) {
 	// TODO
+	std::cout << "dfs called" << std::endl;
 	std::vector<detail::DFSColour> colour;
-	for( auto vertex = 1; vertex != numVertices(g); ++vertex)
+	for( auto vertex = 0; vertex != numVertices(g); ++vertex)
 	{
 		colour.push_back(detail::DFSColour::White);
+		visitor->initVertex(vertex, g);
 	}
-	for( auto vertex = 1; vertex != numVertices(g); ++vertex)
+	for( auto vertex = 0; vertex != numVertices(g); ++vertex)
 	{
 		if (colour[vertex] == detail::DFSColour::White) 
 		{
+			visitor->startVertex(vertex, g);
 			dfsVisit(g, visitor, vertex, colour);
 		}
 	}

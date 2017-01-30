@@ -28,7 +28,7 @@ private:
 	struct StoredVertexSimple {
 		StoredVertexSimple() {}
 
-		StoredVertexSimple(VertexProp vp) : vp(vp=0) {}
+		StoredVertexSimple(VertexProp vp) : vp(vp) {}
 
 		VertexProp vp;
 		OutEdgeList eOut;
@@ -202,6 +202,8 @@ private:
 	int index = 0;
 
 public:
+
+	template <typename U = EdgeProp, typename std::enable_if<std::is_same<U, edgeProp::Cost>::value>::type* =nullptr>
 	int operator[](const EdgeDescriptor e) {
 		for (auto iter = eList.begin(); iter != eList.end(); ++iter)
 		{
@@ -213,8 +215,19 @@ public:
 		return 0;
 	}
 
+	template <typename U = EdgeProp, typename std::enable_if<std::is_same<U, NoProp>::value>::type* =nullptr>
+	int operator[](const EdgeDescriptor e) {
+		return 0;
+	}
+
+	template <typename U = VertexProp, typename std::enable_if<std::is_same<U, vertexProp::Capacity>::value>::type* =nullptr>
 	int operator[](const VertexDescriptor v) {
 		return vList[v].vp.data;
+	}
+
+	template <typename U = VertexProp, typename std::enable_if<std::is_same<U, NoProp>::value>::type* =nullptr>
+	int operator[](const VertexDescriptor v) {
+		return 0;
 	}
 
 public: // VertexList
