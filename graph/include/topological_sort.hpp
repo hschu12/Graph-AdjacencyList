@@ -11,7 +11,12 @@ template<typename OutputIterator>
 struct TopoVisitor : DFSNullVisitor {
 	TopoVisitor(OutputIterator iter) : iter(iter) { }
 
-	// TODO
+	template<typename G, typename V>
+	void finishVertex(const V& v, const G& g) { 
+		auto vertex = v+1;
+		iter = vertex;
+	}	
+
 private:
 	OutputIterator iter;
 };
@@ -22,7 +27,6 @@ template<typename Graph, typename OutputIterator>
 void topoSort(const Graph &g, OutputIterator oIter) {
 	detail::TopoVisitor<OutputIterator> *vis = new detail::TopoVisitor<OutputIterator>(oIter);
 	dfs(g,vis);
-	std::cout << "Done TopoSort" << std::endl;
 }
 
 } // namespace graph

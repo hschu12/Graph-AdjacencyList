@@ -20,7 +20,6 @@ template<typename DirectedTag, typename VertexProp = NoProp, typename EdgeProp =
 struct AdjacencyList {
 private:
 	struct OutEdge {
-		// TODO
 	}; //OutEdge END
 
 	using OutEdgeList = std::vector<OutEdge>;
@@ -116,7 +115,6 @@ public: // EdgeList
 	}; //EdgeList END
 
 public: // Incidence
-//TODO
 	struct OutEdgeRange {
 		// we can reuse the EdgeRange::iterator as the out-edges are simply a sub-range of the edges
 		using iterator = typename EdgeRange::iterator;
@@ -156,7 +154,6 @@ public: // Incidence
 	};	//OutEdgeRange END
 
 public: // Bidirectional 1d
-	// TODO
 	struct InEdgeRange {
 		// we can reuse the EdgeRange::iterator as the in-edges are simply a sub-range of the edges
 		using iterator = typename EdgeRange::iterator;
@@ -249,11 +246,11 @@ public: // EdgeList
 
 public: // Incidence
 	friend VertexDescriptor source(const EdgeDescriptor &e, const AdjacencyList &g) {
-		return e.src;
+		return e.src+1;
 	}
 
 	friend VertexDescriptor target(const EdgeDescriptor &e, const AdjacencyList &g) {
-		return e.tar;
+		return e.tar+1;
 	}
 
 	friend std::size_t outDegree(VertexDescriptor v, const AdjacencyList &g) {
@@ -288,12 +285,12 @@ public: // Other
 	friend EdgeDescriptor addEdge(VertexDescriptor src, VertexDescriptor tar, AdjacencyList &g) {
 		if (src > g.vList.size() || tar > g.vList.size()) //Is Both vertices existing
 		{
-			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar << ") or source(" << src << ") node not existing!" << std::endl;
+			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar+1 << ") or source(" << src+1 << ") node not existing!" << std::endl;
 			assert(false); 
 		} 
 		if (src == tar)  // is the source and target vertex the same?
 		{
-			std::cout << "Source (" << src << ") and target (" << tar << ") vertex is the same. Not allowed!" << std::endl;
+			std::cout << "Source (" << src+1 << ") and target (" << tar+1 << ") vertex is the same. Not allowed!" << std::endl;
 			assert(false);
 		}
 		//already exists?
@@ -301,12 +298,12 @@ public: // Other
 		{
 			if(it->src == src && it->tar == tar) 
 			{
-				std::cout << "Edge: (" << src << "," << tar << ") already exists!" << std::endl;
+				std::cout << "Edge: (" << src+1 << "," << tar+1 << ") already exists!" << std::endl;
 				assert(false);
 			}
 			if(it->src == tar && it->tar == src)
 			{
-				std::cout << "Edge: (" << src << "," << tar << ") already exists!" << std::endl;
+				std::cout << "Edge: (" << src+1 << "," << tar+1 << ") already exists!" << std::endl;
 				assert(false);
 			}
 		}
@@ -322,12 +319,12 @@ public: // Other
 	friend EdgeDescriptor addEdge(VertexDescriptor src, VertexDescriptor tar, EdgeProp ep, AdjacencyList &g) {
 		if (src > g.vList.size() || tar > g.vList.size()) //Is Both vertices existing
 		{
-			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar << ") or source(" << src << ") node not existing!" << std::endl;
+			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar+1 << ") or source(" << src+1 << ") node not existing!" << std::endl;
 			assert(false); 
 		} 
 		if (src == tar)  // is the source and target vertex the same?
 		{
-			std::cout << "Source (" << src << ") and target (" << tar << ") vertex is the same. Not allowed!" << std::endl;
+			std::cout << "Source (" << src+1 << ") and target (" << tar+1 << ") vertex is the same. Not allowed!" << std::endl;
 			assert(false);
 		}
 		//already exists?
@@ -335,12 +332,12 @@ public: // Other
 		{
 			if(it->src == src && it->tar == tar) 
 			{
-				std::cout << "Edge: (" << src << "," << tar << ") already exists!" << std::endl;
+				std::cout << "Edge: (" << src+1 << "," << tar+1 << ") already exists!" << std::endl;
 				assert(false);
 			}
 			if(it->src == tar && it->tar == src)
 			{
-				std::cout << "Edge: (" << src << "," << tar << ") already exists!" << std::endl;
+				std::cout << "Edge: (" << src+1 << "," << tar+1 << ") already exists!" << std::endl;
 				assert(false);
 			}
 		}
@@ -356,12 +353,12 @@ public: // Other
 	friend EdgeDescriptor addEdge(VertexDescriptor src, VertexDescriptor tar, AdjacencyList &g) {
 		if (src > g.vList.size() || tar > g.vList.size()) //Is Both vertices existing
 		{
-			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar << ") or source(" << src << ") node not existing!" << std::endl;
+			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar+1 << ") or source(" << src+1 << ") node not existing!" << std::endl;
 			assert(false); 
 		} 
 		if (src == tar)  // is the source and target vertex the same?
 		{
-			std::cout << "Source (" << src << ") and target (" << tar << ") vertex is the same. Not allowed!" << std::endl;
+			std::cout << "Source (" << src+1 << ") and target (" << tar+1 << ") vertex is the same. Not allowed!" << std::endl;
 			assert(false);
 		}
 		//already exists?
@@ -369,7 +366,7 @@ public: // Other
 		{
 			if(it->src == src && it->tar == tar) 
 			{
-				std::cout << "Edge: (" << src << "," << tar << ") already exists!" << std::endl;
+				std::cout << "Edge: (" << src+1 << "," << tar+1 << ") already exists!" << std::endl;
 				assert(false);
 			}
 		}
@@ -383,12 +380,12 @@ public: // Other
 	friend EdgeDescriptor addEdge(VertexDescriptor src, VertexDescriptor tar, EdgeProp ep, AdjacencyList &g) {
 		if (src > g.vList.size() || tar > g.vList.size()) //Is Both vertices existing
 		{
-			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar << ") or source(" << src << ") node not existing!" << std::endl;
+			std::cout << "Max vertex is: " << g.vList.size() << ". Either target(" << tar+1 << ") or source(" << src+1 << ") node not existing!" << std::endl;
 			assert(false); 
 		} 
 		if (src == tar)  // is the source and target vertex the same?
 		{
-			std::cout << "Source (" << src << ") and target (" << tar << ") vertex is the same. Not allowed!" << std::endl;
+			std::cout << "Source (" << src+1 << ") and target (" << tar+1 << ") vertex is the same. Not allowed!" << std::endl;
 			assert(false);
 		}
 		//already exists?
@@ -396,7 +393,7 @@ public: // Other
 		{
 			if(it->src == src && it->tar == tar) 
 			{
-				std::cout << "Edge: (" << src << "," << tar << ") already exists!" << std::endl;
+				std::cout << "Edge: (" << src+1 << "," << tar+1 << ") already exists!" << std::endl;
 				assert(false);
 			}
 		}
@@ -407,6 +404,7 @@ public: // Other
 	
 	friend VertexDescriptor addVertex(AdjacencyList &g) {
 		if (g.index >= g.vList.size()) {
+			std::cout << "Cant add more than " << g.vList.size() << " vertices!" << std::endl;
 			assert(false);
 		}
 		VertexDescriptor v = g.index;
@@ -416,6 +414,7 @@ public: // Other
 
 	friend VertexDescriptor addVertex(VertexProp vp, AdjacencyList &g) {
 		if (g.index >= g.vList.size()) {
+			std::cout << "Cant add more than " << g.vList.size() << " vertices!" << std::endl;
 			assert(false);
 		}
 		VertexDescriptor v = g.index;
@@ -423,8 +422,6 @@ public: // Other
 		g.index++;
 		return v;
 	}
-public: // Mutable
-	// TODO
 };
 
 } // namespace graph

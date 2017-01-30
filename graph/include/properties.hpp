@@ -8,10 +8,12 @@ namespace graph {
 struct NoProp { };
 
 	namespace edgeProp {
+		
 		struct Cost { 
 			Cost() {}
 
 			Cost(std::size_t cost) : data(cost) { }
+			
 		public:
 			std::size_t data;
 		};
