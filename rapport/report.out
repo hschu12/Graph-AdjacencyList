@@ -1,11 +1,25 @@
 \BOOKMARK [1][-]{section.1}{Forord}{}% 1
 \BOOKMARK [1][-]{section.2}{Designvalg}{}% 2
-\BOOKMARK [1][-]{section.3}{Implementering}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Standard addVertex og addEdge}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{graph::IncidenceGraph}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{graph::BidirectionalGraph}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.4}{Edge and Vertex Properties}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.5}{DFS/Visitor}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.6}{Toplogisk sortering}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{Test}{}% 10
-\BOOKMARK [1][-]{section.5}{Forbedringer}{}% 11
+\BOOKMARK [1][-]{section.3}{Problemer/mangler}{}% 3
+\BOOKMARK [1][-]{section.4}{Implementering}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{addVertex og addEdge}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{graph::IncidenceGraph}{section.4}% 6
+\BOOKMARK [3][-]{subsubsection.4.2.1}{OutEdgeRange}{subsection.4.2}% 7
+\BOOKMARK [3][-]{subsubsection.4.2.2}{source/target}{subsection.4.2}% 8
+\BOOKMARK [3][-]{subsubsection.4.2.3}{outEdges/outDegree}{subsection.4.2}% 9
+\BOOKMARK [2][-]{subsection.4.3}{graph::BidirectionalGraph}{section.4}% 10
+\BOOKMARK [3][-]{subsubsection.4.3.1}{InEdgeRange}{subsection.4.3}% 11
+\BOOKMARK [3][-]{subsubsection.4.3.2}{inEdges/inDegree}{subsection.4.3}% 12
+\BOOKMARK [3][-]{subsubsection.4.3.3}{degree}{subsection.4.3}% 13
+\BOOKMARK [2][-]{subsection.4.4}{Edge and Vertex Properties}{section.4}% 14
+\BOOKMARK [3][-]{subsubsection.4.4.1}{EdgeProp: Cost}{subsection.4.4}% 15
+\BOOKMARK [3][-]{subsubsection.4.4.2}{VertexProp: Capacity}{subsection.4.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.4.3}{[ ] operator}{subsection.4.4}% 17
+\BOOKMARK [2][-]{subsection.4.5}{Toplogisk sortering / Visitor / DFS}{section.4}% 18
+\BOOKMARK [1][-]{section.5}{Test}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{Directed/Bidirectional funktioner}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.2}{Topologisk Sortering}{section.5}% 21
+\BOOKMARK [2][-]{subsection.5.3}{Ikke lovlige operationer}{section.5}% 22
+\BOOKMARK [3][-]{subsubsection.5.3.1}{addVertex}{subsection.5.3}% 23
+\BOOKMARK [3][-]{subsubsection.5.3.2}{addEdge}{subsection.5.3}% 24
+\BOOKMARK [1][-]{section.6}{Forbedringer}{}% 25

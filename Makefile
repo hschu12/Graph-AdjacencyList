@@ -1,7 +1,10 @@
 CC=g++
 CFLAGS= -std=c++14 -O2
 
-make: graph/TestDirectedNoProp.cpp graph/TestBidirectionalNoProp.cpp graph/TestTopoSort.cpp graph/TestBidirectionalProps.cpp graph/TestDirectedProps.cpp graph/TestAddVertexFAILNoProp.cpp graph/TestAddSameEdgeFAIL.cpp graph/TestAddVertexFAILProps.cpp graph/TestAddEdgeSameVertexFAIL.cpp graph/TestAddEdgeLargeVertexFAIL.cpp
+make: graph/TestDirectedNoProp.cpp graph/TestBidirectionalNoProp.cpp graph/TestTopoSort.cpp \
+	graph/TestBidirectionalProps.cpp graph/TestDirectedProps.cpp graph/TestAddVertexFAILNoProp.cpp \
+	graph/TestAddSameEdgeFAIL.cpp graph/TestAddVertexFAILProps.cpp graph/TestAddEdgeSameVertexFAIL.cpp \
+	graph/TestAddEdgeLargeVertexFAIL.cpp
 	$(CC) $(CFLAGS) graph/TestDirectedNoProp.cpp -o testDirectedNoProp
 	$(CC) $(CFLAGS) graph/TestBidirectionalNoProp.cpp -o testBidirectionalNoProp
 	$(CC) $(CFLAGS) graph/TestTopoSort.cpp -o testTopoSort
